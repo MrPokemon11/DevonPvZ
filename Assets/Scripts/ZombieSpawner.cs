@@ -73,8 +73,10 @@ public class ZombieSpawner : MonoBehaviour
             int nextZombie = Random.Range(0, 100);
             int randY = Random.Range(-2, 3);
             randY *= 2;
-            zombies[nextZombie].SetActive(true);
-            zombies[nextZombie].transform.position = new Vector2(9, randY);
+            
+            Zombies zombie = zombies[nextZombie].GetComponent<Zombies>();
+            zombie.gameObject.SetActive(true);
+            zombie.gameObject.transform.position = new Vector2(9, randY);
             WaitForSeconds wait = new WaitForSeconds(10/spawnRate);
             if(!flowerPower) canSpawn = true;
         }
