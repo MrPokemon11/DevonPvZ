@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class Dave : MonoBehaviour
 {
+    
     private float speed = 2f;
     private GameObject player;
     private Rigidbody2D rb2d;
 
-    private float bulletSpeed = 10f;
+    private float bulletSpeed = 1000f;
     
     [SerializeField] GameObject bullet;
     private Rigidbody2D bulletRb;
     
-    public float damage;
-    public float fireRate;
-    public int insanity;
+    public float damage = 1;
+    public float fireRate = 1;
+    public int insanity = 0;
+    
+    bool canFire = true;
     
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
         bulletRb = bullet.GetComponent<Rigidbody2D>();
         
     }
@@ -45,8 +49,15 @@ public class Dave : MonoBehaviour
 
     void Fire()
     {
-        Rigidbody2D proj = Instantiate(bulletRb, transform.position, Quaternion.identity);
-        proj.velocity = transform.right * bulletSpeed * Time.deltaTime;
+        if (canFire)
+        {
+            canFire = false;
+            Rigidbody2D proj = Instantiate(bulletRb, transform.position, Quaternion.identity);
+            proj.velocity = transform.right * bulletSpeed * Time.deltaTime;
+            WaitForSeconds wait = new WaitForSeconds(3/fireRate);
+            canFire = true;
+        }
+
         
     }
 
@@ -54,7 +65,7 @@ public class Dave : MonoBehaviour
     {
         if (player.transform.position.y < 4)
         {
-            rb2d.transform.position += Vector3.up * speed;
+            player.transform.position += Vector3.up * speed;
         }
     }
 
@@ -62,7 +73,7 @@ public class Dave : MonoBehaviour
     {
         if (player.transform.position.y > -4)
         {
-            rb2d.transform.position += Vector3.down * speed;
+            player.transform.position += Vector3.down * speed;
         }
     }
 }

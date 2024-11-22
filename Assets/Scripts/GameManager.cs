@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombies : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    [SerializeField] private bool isSunflower;
+    public static GameManager instance;
 
-    [SerializeField] private bool isPeashooter;
-
-    [SerializeField] private bool isWallnut;
-
-    private int health;
+    private int money = 0;
     
     // Start is called before the first frame update
     void Start()
     {
-        if (isWallnut)
+        if (instance == null)
         {
-            health = 20;
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
