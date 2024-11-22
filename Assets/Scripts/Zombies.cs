@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Zombies : MonoBehaviour
 {
-    public bool isFriendly;
-    
+    [SerializeField] private bool isSunflower;
+
+    [SerializeField] private bool isPeashooter;
+
+    [SerializeField] private bool isWallnut;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,4 @@ public class Projectile : MonoBehaviour
     {
         
     }
-    
-
 }
