@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8104806590941644753}
   - component: {fileID: 4354218405911740561}
   - component: {fileID: 3348840677751770635}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WallnutZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}

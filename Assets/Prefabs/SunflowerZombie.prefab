@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4743036767967240491}
   - component: {fileID: 3766602161125434521}
   - component: {fileID: 4911611400013314460}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SunflowerZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}

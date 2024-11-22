@@ -53,8 +53,8 @@ public class Dave : MonoBehaviour
         {
             canFire = false;
             Rigidbody2D proj = Instantiate(bulletRb, transform.position, Quaternion.identity);
-            proj.GetComponent<GameObject>().GetComponent<Projectile>().isFriendly = true;
-            proj.velocity = transform.right * bulletSpeed * Time.deltaTime;
+            proj.gameObject.GetComponent<Projectile>().isFriendly = true;
+            proj.gameObject.GetComponent<Rigidbody2D>().velocity = transform.right * bulletSpeed * Time.deltaTime;
             WaitForSeconds wait = new WaitForSeconds(3/fireRate);
             canFire = true;
         }

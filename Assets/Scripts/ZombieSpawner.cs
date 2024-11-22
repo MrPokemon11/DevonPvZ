@@ -47,14 +47,14 @@ public class ZombieSpawner : MonoBehaviour
 
         foreach (GameObject zombie in zombies)
         {
-            zombie.gameObject.SetActive(false);
+            zombie.SetActive(false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnZombies();
+        spawnZombies(false);
     }
 
     public GameObject[] getZombies()
@@ -73,7 +73,7 @@ public class ZombieSpawner : MonoBehaviour
             int nextZombie = Random.Range(0, 100);
             int randY = Random.Range(-2, 3);
             randY *= 2;
-            zombies[nextZombie].gameObject.SetActive(true);
+            zombies[nextZombie].SetActive(true);
             zombies[nextZombie].transform.position = new Vector2(9, randY);
             WaitForSeconds wait = new WaitForSeconds(10/spawnRate);
             if(!flowerPower) canSpawn = true;
